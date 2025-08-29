@@ -83,9 +83,9 @@ p {
 
 .brand-grid {
   display: flex;
-  flex-wrap: wrap;          /* let them wrap if screen is narrow */
-  justify-content: center;  /* center them in the row */
-  gap: 30px;                /* space between tiles */
+  flex-wrap: wrap;         
+  justify-content: center;  
+  gap: 30px;              
   margin-top: 40px;
 }
 
@@ -109,12 +109,12 @@ p {
   width: 200px;
   height: auto;
   margin-bottom: 10px;
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3)); /* glow behind logo */
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
 }
 
 .brand-tile p {
   font-size: 18px;
   font-weight: bold;
-  color: white;  /* centered under logo now */
+  color: white; 
   margin: 0;
 }
