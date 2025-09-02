@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eagle Motors</title>
 </head>
 <body>
 
-  <nav class="navbar">
-    <button class="button"><span>Home</span></button>
-    <button class="button"><span>Inventory</span></button>
-    <button class="button"><span>About</span></button>
-    <button class="button"><span>Contact</span></button>
-  </nav>
+  <button class="menu-btn" onclick="openMenu()">☰ Menu</button>
+
+  <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+  <div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">&times;</span>
+    <a href="index.html">Home</a>
+    <a href="catalog.html">Inventory</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
   <header class="hero">
     <img src="/photos/watermark logo.png" alt="Eagle Motors Logo" class="logo">
@@ -22,9 +28,8 @@
     <a href="catalog.html" class="cta">Browse Our Cars</a>
   </header>
 
-  
   <section class="inventory">
-    <h2>Featured Vehicles</h2>
+    <h2 style="text-align:center;">Featured Vehicles</h2>
     <div class="car-grid">
       <div class="car-card">
         <img src="/photos/abt rs7.png">
@@ -47,7 +52,6 @@
     </div>
   </section>
 
-  
   <section class="about">
     <h2>About Eagle Motors</h2>
     <p>
@@ -57,7 +61,6 @@
     </p>
   </section>
 
-  
   <footer>
     <p>© 2025 Eagle Motors | Your Trusted Car Dealership</p>
   </footer>
