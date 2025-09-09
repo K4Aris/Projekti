@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js"></script>
   <title>Catalog | Eagle Motors</title>
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
   <img src="photos/logo.png" alt="Eagle Motors Logo" class="corner-logo">
@@ -15,6 +17,26 @@
     <a href="about.html" class="button"><span>About</span></a>
     <a href="contact.html" class="button"><span>Contact</span></a>
   </nav>
+
+  <section class="filters">
+    <input type="text" id="searchBar" placeholder="Search cars..." onkeyup="searchCars()">
+
+    <select id="brandFilter" onchange="filterCars()">
+      <option value="all">All Brands</option>
+      <option value="bmw">BMW</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="porsche">Porsche</option>
+      <option value="toyota">Toyota</option>
+    </select>
+
+    <select id="sortOptions" onchange="sortCars()">
+      <option value="default">Sort By</option>
+      <option value="priceLow">Price: Low → High</option>
+      <option value="priceHigh">Price: High → Low</option>
+      <option value="newest">Newest First</option>
+    </select>
+  </section>
+
 
   <header class="hero">
     <h1>Catalog of Our Vehicles</h1>
@@ -42,10 +64,20 @@
     </div>
   </section>
 
-<footer>
-  <p>© 2025 Eagle Motors | Your Trusted Car Dealership</p>
-  <p>Visit us: Eagle Motors, 123 Main Street, Cityville | Phone: +123 456 7890 | Email: support@eaglemotors.com</p>
-</footer>
+  <footer>
+    <div class="footer-container">
+      <p>© 2025 Eagle Motors | Your Trusted Car Dealership</p>
+      <p>Visit us: Eagle Motors, 123 Main Street, Cityville | Phone: +123 456 7890 | Email: support@eaglemotors.com</p>
+
+      <div class="opening-hours">
+        <h3>Opening Hours</h3>
+        <p>Mon–Fri: 9:00 – 18:00</p>
+        <p>Sat: 10:00 – 16:00</p>
+        <p>Sun: Closed</p>
+      </div>
+    </div>
+  </footer>
+
 
 
 </body>

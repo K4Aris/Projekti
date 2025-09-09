@@ -175,7 +175,6 @@ p {
   gap: 20px;
 }
 
-/* Navbar always above everything */
 .navbar {
   display: flex;
   justify-content: center;
@@ -185,10 +184,9 @@ p {
   position: sticky;
   top: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  z-index: 1000; /* ensures navbar stays on top */
+  z-index: 1000;
 }
 
-/* Car hover fix */
 .car-card {
   position: relative;
   z-index: 1;
@@ -197,14 +195,17 @@ p {
 
 .car-card:hover {
   transform: translateY(-10px) scale(1.02);
-  z-index: 2; /* lifts above other cards but not above navbar */
+  z-index: 2;
 }
 
 .car-card img {
-  max-width: 100%;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 12px;
 }
+
 
 .car-card h3 {
   font-size: 20px;
@@ -294,4 +295,44 @@ footer p {
   margin: 8px 0;
   font-size: 14px;
   line-height: 1.6;
+}
+
+.testimonials {
+  background: #111;
+  padding: 50px 20px;
+  margin-top: 40px;
+}
+
+.testimonials h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.testimonial {
+  background: #222;
+  padding: 20px;
+  border-radius: 8px;
+  font-style: italic;
+  color: #ccc;
+}
+
+.testimonial h4 {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.brand-tile {
+  display: flex;
+}
+
+.brand-tile[style*="display: none"] {
+  display: none !important;
 }

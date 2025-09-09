@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eagle Motors</title>
 </head>
@@ -26,19 +27,20 @@
   <section class="inventory">
     <h2 style="text-align:center;">Featured Vehicles</h2>
     <div class="car-grid">
-      <div class="car-card">
+      <div class="car-card" data-brand="audi" data-price="86000">
         <img src="/photos/abt rs7.png">
         <h3>Audi ABT RS-7</h3>
         <p>Performance and elegance combined</p>
         <a href="m8.html" class="car-btn"><span>View details</span></a>
       </div>
-      <div class="car-card">
+      <div class="car-card" data-brand="mercedes" data-price="75000">
         <img src="/photos/cls.png">
         <h3>Mercedes Benz CLS</h3>
-        <p>Expressive details emphasise the design of the Mercedes-Benz CLS.</p>
+        <p>Expressive details emphasise the design...</p>
         <a href="cls.html" class="car-btn"><span>View details</span></a>
       </div>
-      <div class="car-card">
+
+      <div class="car-card" data-brand="porsche" data-price="250000">
         <img src="/photos/porsche.png">
         <h3>Porsche 911</h3>
         <p>The legendary 911. The identity of the Porsche brand - since 1963.</p>
@@ -56,10 +58,39 @@
     </p>
   </section>
 
-<footer>
-  <p>© 2025 Eagle Motors | Your Trusted Car Dealership</p>
-  <p>Visit us: Eagle Motors, 123 Main Street, Cityville | Phone: +123 456 7890 | Email: support@eaglemotors.com</p>
-</footer>
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"Buying my car from Eagle Motors was the smoothest experience ever!"</p>
+        <h4>- Sarah L.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Great service, amazing deals, and friendly staff. Highly recommend."</p>
+        <h4>- James K.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"I found my dream Porsche here. The process was quick and easy."</p>
+        <h4>- Anna R.</h4>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-container">
+      <p>© 2025 Eagle Motors | Your Trusted Car Dealership</p>
+      <p>Visit us: Eagle Motors, 123 Main Street, Cityville | Phone: +123 456 7890 | Email: support@eaglemotors.com</p>
+
+      <div class="opening-hours">
+        <h3>Opening Hours</h3>
+        <p>Mon–Fri: 9:00 – 18:00</p>
+        <p>Sat: 10:00 – 16:00</p>
+        <p>Sun: Closed</p>
+      </div>
+    </div>
+  </footer>
+
 
 </body>
 </html>
