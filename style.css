@@ -60,7 +60,6 @@ body {
   right: 0;
 }
 
-
 .car-container {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
@@ -88,8 +87,8 @@ table td {
 }
 
 p {
-    line-height: 1.6;
-    color: white;
+  line-height: 1.6;
+  color: white;
 }
 
 .brand-grid {
@@ -130,10 +129,6 @@ p {
   margin: 0;
 }
 
-
-
-
-
 .hero {
   padding: 60px 20px;
 }
@@ -165,7 +160,6 @@ p {
   background-color: #ccc;
 }
 
-
 .inventory {
   padding: 50px 20px;
 }
@@ -181,17 +175,29 @@ p {
   gap: 20px;
 }
 
-.car-card {
+/* Navbar always above everything */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
   background-color: #111;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000; /* ensures navbar stays on top */
+}
+
+/* Car hover fix */
+.car-card {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .car-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  z-index: 2; /* lifts above other cards but not above navbar */
 }
 
 .car-card img {
@@ -226,7 +232,6 @@ p {
   background-color: #ccc;
 }
 
-
 .about {
   padding: 50px 20px;
   max-width: 700px;
@@ -243,31 +248,26 @@ p {
   line-height: 1.6;
 }
 
-
 footer {
-  background-color: #111;
-  padding: 20px;
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 20px;
   margin-top: 40px;
-  color: #aaa;
+  width: 100%;
+}
+
+footer .footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin: 8px 0;
   font-size: 14px;
+  line-height: 1.6;
 }
 
-.cta {
-  display: inline-block;
-  background-color: #fff;
-  color: #000;
-  text-decoration: none;   
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.cta:hover {
-  background-color: #ccc;
-}
 .logo {
   display: block;
   margin: 20px auto 30px auto;
@@ -276,16 +276,22 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
-
-
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  background-color: #111;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+  width: 100%;
 }
 
+footer .footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
