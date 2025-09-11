@@ -13,11 +13,11 @@ body {
 
 .corner-logo {
   position: fixed;
-  top: 5px;
+  top: 2px;
   left: 20px;
   width: 100px;
   height: auto;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .button {
