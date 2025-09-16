@@ -3,70 +3,87 @@ document.addEventListener("DOMContentLoaded", () => {
   const brandFilter = document.getElementById("brandFilter");
   const sortOptions = document.getElementById("sortOptions");
   const brandGrid = document.querySelector(".brand-grid");
+  const carSection = document.getElementById("carSection");
+  const carGrid = document.getElementById("carGrid");
 
-  let brandTiles = Array.from(document.querySelectorAll(".brand-tile"));
+  const brandTiles = Array.from(document.querySelectorAll(".brand-tile"));
 
-  function normalizeBrandKey(displayName) {
-    if (!displayName) return "";
-    const tokens = displayName.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(/\s+/);
-    return tokens.length ? tokens[0] : displayName.toLowerCase();
-  }
-
-  brandTiles.forEach(tile => {
-    const displayName = tile.querySelector("p")?.innerText || "";
-    const brandKey = normalizeBrandKey(displayName);
-    tile.dataset.brand = brandKey;
-
-    if (brandKey === "bmw") { tile.dataset.price = 85000; tile.dataset.year = 2023; }
-    else if (brandKey === "mercedes") { tile.dataset.price = 75000; tile.dataset.year = 2022; }
-    else if (brandKey === "porsche") { tile.dataset.price = 120000; tile.dataset.year = 2024; }
-    else if (brandKey === "toyota") { tile.dataset.price = 50000; tile.dataset.year = 2021; }
-    else { tile.dataset.price = 60000; tile.dataset.year = 2020; }
-  });
-
+  // Show/hide brands or search-specific cars
   function updateVisibility() {
-    const q = (searchBar?.value || "").toLowerCase().trim();
+    const query = (searchBar?.value || "").toLowerCase().trim();
     const selectedBrand = brandFilter?.value || "all";
 
-    brandTiles.forEach(tile => {
-      const name = (tile.querySelector("p")?.innerText || "").toLowerCase();
-      const brand = tile.dataset.brand || "";
-      const matchesSearch = q === "" || name.includes(q);
+    // Always get latest search cards
+    const carCards = Array.from(document.querySelectorAll(".search-car-card"));
+
+    if (query === "") {
+      // Show brands, hide search cars
+      brandGrid.style.display = "flex";
+      carSection.style.display = "none";
+
+      brandTiles.forEach(tile => {
+        const brand = tile.dataset.brand || "";
+        tile.style.display = (selectedBrand === "all" || brand === selectedBrand) ? "flex" : "none";
+      });
+      return;
+    }
+
+    // Show cars, hide brands
+    brandGrid.style.display = "none";
+    carSection.style.display = "block";
+
+    let anyVisible = false;
+
+    carCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const brand = card.dataset.brand || "";
+      const matchesSearch = text.includes(query);
       const matchesBrand = selectedBrand === "all" || brand === selectedBrand;
 
-      tile.style.display = (matchesSearch && matchesBrand) ? "flex" : "none";
+      const show = matchesSearch && matchesBrand;
+      card.style.display = show ? "block" : "none";
+      if (show) anyVisible = true;
     });
-  }
 
-  if (searchBar) {
-    searchBar.addEventListener("input", () => {
-      updateVisibility();
-    });
-  }
-
-  if (brandFilter) {
-    brandFilter.addEventListener("change", () => {
-      updateVisibility();
-    });
-  }
-
-  if (sortOptions) {
-    sortOptions.addEventListener("change", () => {
-      brandTiles = Array.from(document.querySelectorAll(".brand-tile"));
-
-      const val = sortOptions.value;
-      if (val === "priceLow") {
-        brandTiles.sort((a, b) => Number(a.dataset.price || 0) - Number(b.dataset.price || 0));
-      } else if (val === "priceHigh") {
-        brandTiles.sort((a, b) => Number(b.dataset.price || 0) - Number(a.dataset.price || 0));
-      } else if (val === "newest") {
-        brandTiles.sort((a, b) => Number(b.dataset.year || 0) - Number(a.dataset.year || 0));
+    // No cars found message
+    const noCarsMsg = carGrid.querySelector(".no-cars-message");
+    if (!anyVisible) {
+      if (!noCarsMsg) {
+        const msg = document.createElement("p");
+        msg.classList.add("no-cars-message");
+        msg.style.color = "white";
+        msg.style.textAlign = "center";
+        msg.textContent = "No cars found.";
+        carGrid.appendChild(msg);
       }
-      brandGrid.innerHTML = "";
-      brandTiles.forEach(t => brandGrid.appendChild(t));
-      updateVisibility();
-    });
+    } else if (noCarsMsg) {
+      noCarsMsg.remove();
+    }
   }
 
+  // Sort cars
+  function sortCars() {
+    const carCards = Array.from(document.querySelectorAll(".search-car-card"));
+    const val = sortOptions.value;
+
+    carCards.sort((a, b) => {
+      if (val === "priceLow") return Number(a.dataset.price) - Number(b.dataset.price);
+      if (val === "priceHigh") return Number(b.dataset.price) - Number(a.dataset.price);
+      if (val === "newest") return Number(b.dataset.year) - Number(a.dataset.year);
+      return 0;
+    });
+
+    carCards.forEach(card => carGrid.appendChild(card));
+  }
+
+  // Event listeners
+  if (searchBar) searchBar.addEventListener("input", updateVisibility);
+  if (brandFilter) brandFilter.addEventListener("change", updateVisibility);
+  if (sortOptions) sortOptions.addEventListener("change", () => {
+    sortCars();
+    updateVisibility();
+  });
+
+  // Initial display
   updateVisibility();
 });
