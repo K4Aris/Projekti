@@ -388,3 +388,25 @@ footer p {
 .brand-tile[style*="display: none"] {
   display: none !important;
 }
+
+.search-car-card img {
+  width: 120px;        /* or whatever size you want for search results */
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-car-card {
+  display: block;          
+  text-decoration: none;  
+  color: inherit;          
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+.search-car-card:hover {
+  transform: translateY(-4px);
+}
