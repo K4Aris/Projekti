@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carCards.forEach(card => {
       const text = card.textContent.toLowerCase();
-      const brand = card.dataset.brand || "";
-      const matchesSearch = text.includes(query);
+      const brand = (card.dataset.brand || "").toLowerCase();
+      const matchesSearch = text.includes(query) || brand.includes(query);  
       const matchesBrand = selectedBrand === "all" || brand === selectedBrand;
 
       const show = matchesSearch && matchesBrand;
