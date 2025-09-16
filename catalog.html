@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js"></script>
   <title>Catalog | Eagle Motors</title>
   <link rel="stylesheet" href="style.css">
-
+  <script src="script.js" defer></script>
 </head>
 <body>
   <img src="photos/logo.png" alt="Eagle Motors Logo" class="corner-logo">
@@ -18,51 +17,56 @@
     <a href="contact.html" class="button"><span>Contact</span></a>
   </nav>
 
-  <section class="filters">
-    <input type="text" id="searchBar" placeholder="Search cars..." onkeyup="searchCars()">
+  <main class="catalog-container">
+    <aside class="sidebar">
+      <h2>Filters</h2>
 
-    <select id="brandFilter" onchange="filterCars()">
-      <option value="all">All Brands</option>
-      <option value="bmw">BMW</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="porsche">Porsche</option>
-      <option value="toyota">Toyota</option>
-    </select>
+      <input type="text" id="searchBar" placeholder="Search cars..." onkeyup="searchCars()">
 
-    <select id="sortOptions" onchange="sortCars()">
-      <option value="default">Sort By</option>
-      <option value="priceLow">Price: Low → High</option>
-      <option value="priceHigh">Price: High → Low</option>
-      <option value="newest">Newest First</option>
-    </select>
-  </section>
+      <label for="brandFilter">Brand</label>
+      <select id="brandFilter" onchange="filterCars()">
+        <option value="all">All Brands</option>
+        <option value="bmw">BMW</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="porsche">Porsche</option>
+        <option value="toyota">Toyota</option>
+      </select>
 
+      <label for="sortOptions">Sort By</label>
+      <select id="sortOptions" onchange="sortCars()">
+        <option value="default">Default</option>
+        <option value="priceLow">Price: Low → High</option>
+        <option value="priceHigh">Price: High → Low</option>
+        <option value="newest">Newest First</option>
+      </select>
+    </aside>
 
-  <header class="hero">
-    <h1>Catalog of Our Vehicles</h1>
-    <p class="tagline">Choose a brand to explore our collection</p>
-  </header>
+    <section class="catalog-main">
+      <header class="hero">
+        <h1>Catalog of Our Vehicles</h1>
+        <p class="tagline">Browse, filter, and find your dream car</p>
+      </header>
 
-  <section class="brand-section">
-    <div class="brand-grid">
-      <a href="m8.html" class="brand-tile">
-        <img src="photos/BMW_Logo.png" alt="BMW Logo">
-        <p>BMW</p>
-      </a>
-      <a href="cls.html" class="brand-tile">
-        <img src="photos/Mercedes_Logo.png" alt="Mercedes Logo">
-        <p>Mercedes-Benz</p>
-      </a>
-      <a href="porsche.html" class="brand-tile">
-        <img src="photos/Porsche_Logo.png" alt="Porsche Logo">
-        <p>Porsche</p>
-      </a>
-      <a href="supra.html" class="brand-tile">
-        <img src="photos/Toyota_Logo.png" alt="Toyota Logo">
-        <p>Toyota</p>
-      </a>
-    </div>
-  </section>
+      <div class="brand-grid">
+        <a href="m8.html" class="brand-tile" data-brand="bmw" data-price="95000" data-year="2023">
+          <img src="photos/BMW_Logo.png" alt="BMW Logo">
+          <p>BMW</p>
+        </a>
+        <a href="cls.html" class="brand-tile" data-brand="mercedes" data-price="85000" data-year="2022">
+          <img src="photos/Mercedes_Logo.png" alt="Mercedes Logo">
+          <p>Mercedes-Benz</p>
+        </a>
+        <a href="porsche.html" class="brand-tile" data-brand="porsche" data-price="120000" data-year="2024">
+          <img src="photos/Porsche_Logo.png" alt="Porsche Logo">
+          <p>Porsche</p>
+        </a>
+        <a href="supra.html" class="brand-tile" data-brand="toyota" data-price="60000" data-year="2021">
+          <img src="photos/Toyota_Logo.png" alt="Toyota Logo">
+          <p>Toyota</p>
+        </a>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="footer-container">
@@ -77,8 +81,5 @@
       </div>
     </div>
   </footer>
-
-
-
 </body>
 </html>

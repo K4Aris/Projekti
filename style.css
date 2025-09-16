@@ -1,14 +1,19 @@
-h1 {
-  text-align: center;
-  color: white;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #000;
   color: #fff;
   text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+}
+
+p {
+  line-height: 1.6;
+  color: #fff;
 }
 
 .corner-logo {
@@ -20,113 +25,60 @@ body {
   z-index: 1100;
 }
 
+.logo {
+  display: block;
+  margin: 20px auto 30px;
+  max-width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background-color: #111;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
 .button {
   display: inline-block;
   border-radius: 10px;
-  background-color: #ffffff;
-  border: none;
-  color: #000000;
-  text-align: center;
+  background: #fff;
+  color: #000;
   font-size: 12px;
   padding: 15px;
   width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
   margin: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease;
 }
 
 .button span {
-  cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 .button span:after {
-  content: '\00bb';
+  content: '»';
   position: absolute;
   opacity: 0;
-  top: 0;
   right: -20px;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 .button:hover span {
-  padding-right: 25px;
+  padding-right: 20px;
 }
 
 .button:hover span:after {
   opacity: 1;
   right: 0;
-}
-
-.car-container {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 30px auto;  
-  text-align: center;
-  max-width: 700px;
-  box-shadow: 0 20px 300px rgba(255, 255, 255, 0.3);
-}
-
-.car-container img {
-  max-width: 1000px;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-table {
-  margin: 0 auto 20px auto;
-  border-collapse: collapse;
-}
-
-table td {
-  padding: 8px 15px;
-}
-
-p {
-  line-height: 1.6;
-  color: white;
-}
-
-.brand-grid {
-  display: flex;
-  flex-wrap: wrap;         
-  justify-content: center;  
-  gap: 30px;              
-  margin-top: 40px;
-}
-
-.brand-tile {
-  display: flex;
-  flex-direction: column;   
-  align-items: center;   
-  text-align: center;
-  border-radius: 15px;
-  padding: 20px;
-  width: 180px;          
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: transparent;
-}
-
-.brand-tile:hover {
-  transform: scale(1.08);
-}
-
-.brand-tile img {
-  width: 200px;
-  height: auto;
-  margin-bottom: 10px;
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
-}
-
-.brand-tile p {
-  font-size: 18px;
-  font-weight: bold;
-  color: white; 
-  margin: 0;
 }
 
 .hero {
@@ -144,157 +96,110 @@ p {
   margin-bottom: 30px;
 }
 
-.cta {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: bold;
+.catalog-container {
+  display: flex;
+  min-height: calc(100vh - 120px);
+  gap: 30px;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background: #111;
+  padding: 20px;
   border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 80px;
+  height: fit-content;
 }
 
-.cta:hover {
-  background-color: #ccc;
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
 }
 
-.inventory {
-  padding: 50px 20px;
+.sidebar label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 14px;
+  color: #aaa;
 }
 
-.inventory h2 {
-  font-size: 28px;
+.sidebar input,
+.sidebar select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #000;
+  color: #fff;
+}
+
+.catalog-main {
+  flex: 1;
+  padding: 20px;
+}
+
+.catalog-main .hero {
+  text-align: center;
   margin-bottom: 30px;
 }
 
-.car-grid {
+.catalog-main .hero h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.catalog-main .hero p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.brand-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  justify-items: center;
 }
 
-.navbar {
+.brand-tile {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  background-color: #111;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-.car-card {
-  position: relative;
-  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: transparent; 
+  padding: 20px;
+  border-radius: 15px;
+  width: 180px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.car-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  z-index: 2;
+.brand-tile:hover {
+  transform: scale(1.08);
 }
 
-.car-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 12px;
-}
-
-
-.car-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.car-card p {
-  color: #aaa;
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.car-btn {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-
-.car-btn:hover {
-  background-color: #ccc;
-}
-
-.about {
-  padding: 50px 20px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.about h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.about p {
-  color: #bbb;
-  line-height: 1.6;
-}
-
-footer {
-  background: #111;
-  color: #ccc;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 40px;
-  width: 100%;
-}
-
-footer .footer-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-footer p {
-  margin: 8px 0;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.logo {
-  display: block;
-  margin: 20px auto 30px auto;
-  max-width: 180px;
+.brand-tile img {
+  width: 160px;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-}
-footer {
-  background: #111;
-  color: #ccc;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 40px;
-  width: 100%;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
 }
 
-footer .footer-container {
-  max-width: 1000px;
-  margin: 0 auto;
+.brand-tile p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
 }
 
-footer p {
-  margin: 8px 0;
-  font-size: 14px;
-  line-height: 1.6;
+.brand-tile[style*="display: none"] {
+  display: none !important;
 }
 
 .testimonials {
@@ -329,10 +234,21 @@ footer p {
   color: #fff;
 }
 
-.brand-tile {
-  display: flex;
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
 }
 
-.brand-tile[style*="display: none"] {
-  display: none !important;
+footer .footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
 }
