@@ -411,49 +411,50 @@ footer p {
   transform: translateY(-4px);
 }
 
-
-/* BMW vertical list, slightly bigger and more centered */
 .car-list {
   display: flex;
   flex-direction: column;
-  gap: 22px;                /* more space between cards */
-  align-items: flex-start;
-  margin: 40px 0 0 80px;    /* increase left margin to move cards away from edge */
+  gap: 22px;
+  align-items: center;   /* centers the cards horizontally */
+  margin: 40px 0 0 0;    /* remove or reduce left margin */
 }
 
 .car-list-card {
-  width: 260px;             /* make cards bigger */
-  padding: 18px;
+  width: 420px;
+  padding: 24px;
   background: #111;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
   text-decoration: none;
   color: #fff;
-  display: flex;
-  flex-direction: column;
+  display: flex;                /* use row layout */
+  flex-direction: row;          /* image left, text right */
   align-items: center;
+  gap: 20px;                    /* space between image and text */
   transition: box-shadow 0.2s, background 0.2s;
 }
 
 .car-list-card img {
-  width: 100%;
-  max-width: 200px;         /* bigger image */
-  border-radius: 8px;
-  margin-bottom: 12px;
+  width: 140px;                 /* image size */
+  max-width: 140px;
+  border-radius: 10px;
+  margin-bottom: 0;             /* remove bottom margin */
+  flex-shrink: 0;               /* prevent shrinking */
+}
+
+.car-list-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .car-list-card h3 {
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 8px;
 }
 
 .car-list-card p {
-  font-size: 15px;
+  font-size: 16px;
   margin: 3px 0;
   color: #ccc;
-}
-
-.car-list-card:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.36);
-  background: #222;
 }
